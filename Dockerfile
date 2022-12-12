@@ -3,7 +3,7 @@ FROM ruby:3.1.2
 WORKDIR /app
 
 RUN apt-get update && apt-get install vim -y
-
+RUN echo "IRB.conf[:USE_AUTOCOMPLETE] = false" >> ~/.irbrc
 COPY Gemfile* /app/
 
 RUN gem install bundler:$(grep "BUNDLED WITH" Gemfile.lock -A 1 | tail -1 | xargs) && \

@@ -1,8 +1,6 @@
-class Greeter
-  def call(*args)
-    raise "WTF"
-    [200, {}, ["Hello world!"]]
-  end
-end
+require_relative 'lib/greeter'
+require 'rack'
+
+use Rack::Reloader, 0
 
 run Greeter.new
